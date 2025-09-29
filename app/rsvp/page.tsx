@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { CreateRSVPData } from '@/types/rsvp';
 
 interface FormData {
   name: string;
@@ -54,16 +55,36 @@ const RSVPPage: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // TODO: Aquí se enviará a la API de Supabase
-      console.log('Datos del formulario:', formData);
-      
-      // Simulamos el envío
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Preparar datos para enviar a la API
+      const rsvpData: CreateRSVPData = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim() || undefined,
+        attending: formData.attending,
+        dietary_restrictions: formData.dietary_restrictions.trim() || undefined,
+        message: formData.message.trim() || undefined,
+      };
+
+      const response = await fetch('/api/rsvp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(rsvpData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Error al enviar la confirmación');
+      }
+
+      const result = await response.json();
+      console.log('RSVP guardado exitosamente:', result);
       
       setIsSubmitted(true);
     } catch (error) {
       console.error('Error al enviar:', error);
-      alert('Hubo un error al enviar tu confirmación. Por favor intenta de nuevo.');
+      alert(`Hubo un error al enviar tu confirmación: ${error instanceof Error ? error.message : 'Error desconocido'}. Por favor intenta de nuevo.`);
     } finally {
       setIsSubmitting(false);
     }
