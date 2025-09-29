@@ -7,7 +7,6 @@ interface FormData {
   name: string;
   email: string;
   phone: string;
-  guests_count: number;
   dietary_restrictions: string;
   message: string;
   attending: boolean;
@@ -18,7 +17,6 @@ const RSVPPage: React.FC = () => {
     name: '',
     email: '',
     phone: '',
-    guests_count: 1,
     dietary_restrictions: '',
     message: '',
     attending: true
@@ -41,9 +39,6 @@ const RSVPPage: React.FC = () => {
       newErrors.email = 'El email no es válido';
     }
 
-    if (formData.guests_count < 1 || formData.guests_count > 10) {
-      newErrors.guests_count = 'Número de invitados debe ser entre 1 y 10' as any;
-    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -93,8 +88,7 @@ const RSVPPage: React.FC = () => {
   const handleAttendingChange = (attending: boolean) => {
     setFormData(prev => ({
       ...prev,
-      attending,
-      guests_count: attending ? prev.guests_count : 0
+      attending
     }));
   };
 
@@ -137,9 +131,6 @@ const RSVPPage: React.FC = () => {
                   <div><strong>Nombre:</strong> {formData.name}</div>
                   <div><strong>Email:</strong> {formData.email}</div>
                   <div><strong>¿Asistirás?:</strong> {formData.attending ? 'Sí' : 'No'}</div>
-                  {formData.attending && (
-                    <div><strong>Número de invitados:</strong> {formData.guests_count}</div>
-                  )}
                   {formData.dietary_restrictions && (
                     <div><strong>Restricciones alimentarias:</strong> {formData.dietary_restrictions}</div>
                   )}
@@ -271,28 +262,6 @@ const RSVPPage: React.FC = () => {
               />
             </div>
 
-            {/* Número de invitados (solo si asiste) */}
-            {formData.attending && (
-              <div>
-                <label htmlFor="guests_count" className="block text-sm font-medium text-gray-700 mb-2">
-                  Número total de invitados (incluyéndote)
-                </label>
-                <select
-                  id="guests_count"
-                  name="guests_count"
-                  value={formData.guests_count}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                >
-                  {[1,2,3,4,5,6,7,8,9,10].map(num => (
-                    <option key={num} value={num}>
-                      {num} {num === 1 ? 'persona' : 'personas'}
-                    </option>
-                  ))}
-                </select>
-                {errors.guests_count && <p className="text-red-500 text-sm mt-1">{errors.guests_count}</p>}
-              </div>
-            )}
 
             {/* Restricciones alimentarias (solo si asiste) */}
             {formData.attending && (
