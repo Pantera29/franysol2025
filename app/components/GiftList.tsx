@@ -16,11 +16,11 @@ const GiftList: React.FC = () => {
           {/* Mensaje inspiracional */}
           <div className="mb-12">
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sans italic max-w-3xl mx-auto">
-              "Muchos de ustedes viajarán desde distintos lugares del mundo para celebrar con nosotros, 
+              &ldquo;Muchos de ustedes viajarán desde distintos lugares del mundo para celebrar con nosotros, 
               así que tu presencia tiene una gran importancia para nosotros y es todo lo que podríamos pedir. 
               <br /><br />
               Si aún así quieres acompañarnos con un detalle especial, hemos creado un fondo para nuestra luna de miel. 
-              ¡Gracias por ser parte de nuestra historia!"
+              ¡Gracias por ser parte de nuestra historia!&rdquo;
             </p>
           </div>
 
