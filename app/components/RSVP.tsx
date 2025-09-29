@@ -14,6 +14,17 @@ const RSVP: React.FC = () => {
               ¡Acompáñanos!
             </h2>
 
+            {/* Imagen pequeña en mobile - aparece después del título */}
+            <div className="lg:hidden mb-8">
+              <div className="aspect-[4/3] max-w-xs mx-auto rounded-lg overflow-hidden shadow-lg">
+                <img
+                  src="/solyfran.jpg"
+                  alt="Sol y Fran - Invitación de boda"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
             <div className="space-y-6">
               {/* Mensaje principal */}
               <div>
@@ -41,8 +52,8 @@ const RSVP: React.FC = () => {
             </div>
           </div>
 
-          {/* Imagen derecha */}
-          <div className="order-2 lg:order-2">
+          {/* Imagen derecha - oculta en mobile */}
+          <div className="order-2 lg:order-2 hidden lg:block">
             <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-lg">
               <img
                 src="/solyfran.jpg"

@@ -7,8 +7,8 @@ const EventInfo: React.FC = () => {
     <section id="evento" className="py-20" style={{backgroundColor: '#F2F2F0'}}>
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Imagen izquierda */}
-          <div className="order-2 lg:order-1">
+          {/* Imagen izquierda - oculta en mobile */}
+          <div className="order-2 lg:order-1 hidden lg:block">
             <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-lg">
               <img
                 src="/bodegas-robinson.jpg"
@@ -23,6 +23,17 @@ const EventInfo: React.FC = () => {
             <h2 className="font-serif text-4xl md:text-5xl mb-8 text-black">
               Ceremonia y Fiesta
             </h2>
+
+            {/* Imagen pequeña en mobile - aparece después del título */}
+            <div className="lg:hidden mb-8">
+              <div className="aspect-[4/3] max-w-xs mx-auto rounded-lg overflow-hidden shadow-lg">
+                <img
+                  src="/bodegas-robinson.jpg"
+                  alt="Bodegas Robinson - Lugar de la celebración"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
 
             <div className="space-y-6">
               {/* Hora */}
