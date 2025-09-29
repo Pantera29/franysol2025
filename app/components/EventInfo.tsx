@@ -9,25 +9,19 @@ const EventInfo: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Imagen izquierda */}
           <div className="order-2 lg:order-1">
-            <div className="aspect-[4/5] bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg overflow-hidden">
-              {/* Placeholder para imagen */}
-              <div className="h-full flex items-center justify-center text-gray-600">
-                <div className="text-center">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-gray-400 rounded-full flex items-center justify-center">
-                    <svg className="w-12 h-12 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <p className="text-sm">Imagen de la pareja</p>
-                </div>
-              </div>
+            <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-lg">
+              <img
+                src="/bodegas-robinson.jpg"
+                alt="Bodegas Robinson - Lugar de la celebración"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
           {/* Información derecha */}
           <div className="order-1 lg:order-2 text-center lg:text-left">
             <h2 className="font-serif text-4xl md:text-5xl mb-8 text-black">
-              Celebración
+              Ceremonia y Fiesta
             </h2>
 
             <div className="space-y-6">
@@ -44,7 +38,6 @@ const EventInfo: React.FC = () => {
                   Bodegas Robinson
                 </h4>
                 <p className="font-sans text-gray-600 mb-4">
-                  Gualeguay 4500<br />
                   Concordia, Entre Ríos, Argentina
                 </p>
               </div>
