@@ -4,7 +4,7 @@ import React from 'react';
 
 const EventInfo: React.FC = () => {
   return (
-    <section id="evento" className="py-20 bg-white">
+    <section id="evento" className="py-20" style={{backgroundColor: '#F2F2F0'}}>
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Imagen izquierda */}

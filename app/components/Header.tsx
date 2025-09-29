@@ -23,16 +23,16 @@ const Header: React.FC = () => {
 
           {/* Logo/Iniciales centradas - Solo visible en móvil */}
           <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
-            <h1 className="text-white font-serif text-lg tracking-wide">
+            <a href="#" className="text-white font-serif text-lg tracking-wide hover:text-white/80 transition-colors duration-300">
               S&F
-            </h1>
+            </a>
           </div>
 
           {/* Logo/Iniciales centradas - Solo visible en desktop */}
           <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
-            <h1 className="text-white font-serif text-xl tracking-wide">
+            <a href="#" className="text-white font-serif text-xl tracking-wide hover:text-white/80 transition-colors duration-300">
               S&F 28.03.26
-            </h1>
+            </a>
           </div>
 
           {/* Navegación izquierda - Solo desktop */}

@@ -4,7 +4,7 @@ import React from 'react';
 
 const GiftList: React.FC = () => {
   return (
-    <section id="regalos" className="py-20 bg-white">
+    <section id="regalos" className="py-20" style={{backgroundColor: '#F2F2F0'}}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
           {/* Título */}
@@ -35,7 +35,7 @@ const GiftList: React.FC = () => {
               
               <div className="space-y-6">
                 {/* Sol - México */}
-                <div className="bg-white rounded-lg p-6 shadow-sm">
+                <div className="rounded-lg p-6 shadow-sm" style={{backgroundColor: '#F2F2F0'}}>
                   <h4 className="font-serif text-lg text-gray-800 mb-4">Sol Traffano</h4>
                   <div className="text-sm text-gray-600 space-y-2">
                     <div><strong>Banco:</strong> BBVA Bancomer</div>
@@ -45,7 +45,7 @@ const GiftList: React.FC = () => {
                 </div>
 
                 {/* Franco - México */}
-                <div className="bg-white rounded-lg p-6 shadow-sm">
+                <div className="rounded-lg p-6 shadow-sm" style={{backgroundColor: '#F2F2F0'}}>
                   <h4 className="font-serif text-lg text-gray-800 mb-4">Franco Longhi</h4>
                   <div className="text-sm text-gray-600 space-y-2">
                     <div><strong>Banco:</strong> BBVA Bancomer</div>
@@ -65,7 +65,7 @@ const GiftList: React.FC = () => {
               
               <div className="space-y-6">
                 {/* Sol - Argentina */}
-                <div className="bg-white rounded-lg p-6 shadow-sm">
+                <div className="rounded-lg p-6 shadow-sm" style={{backgroundColor: '#F2F2F0'}}>
                   <h4 className="font-serif text-lg text-gray-800 mb-4">Sol Traffano</h4>
                   <div className="text-sm text-gray-600 space-y-2">
                     <div><strong>Banco:</strong> MercadoPago</div>
@@ -75,7 +75,7 @@ const GiftList: React.FC = () => {
                 </div>
 
                 {/* Franco - Argentina */}
-                <div className="bg-white rounded-lg p-6 shadow-sm">
+                <div className="rounded-lg p-6 shadow-sm" style={{backgroundColor: '#F2F2F0'}}>
                   <h4 className="font-serif text-lg text-gray-800 mb-4">Franco Longhi</h4>
                   <div className="text-sm text-gray-600 space-y-2">
                     <div><strong>Banco:</strong> Galicia</div>

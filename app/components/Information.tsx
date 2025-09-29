@@ -4,7 +4,7 @@ import React from 'react';
 
 const Information: React.FC = () => {
   return (
-    <section id="informacion" className="py-20 bg-gray-50">
+    <section id="informacion" className="py-20" style={{backgroundColor: '#F2F2F0'}}>
       <div className="container mx-auto px-6">
         <div className="min-h-[500px] flex items-center">
           <div className="w-full max-w-4xl mx-auto">
@@ -17,7 +17,7 @@ const Information: React.FC = () => {
             
             <div className="grid md:grid-cols-2 gap-8">
               {/* Código de Vestimenta */}
-              <div className="bg-white rounded-lg p-8 shadow-sm">
+              <div className="rounded-lg p-8 shadow-sm" style={{backgroundColor: '#F2F2F0'}}>
                 <div className="flex items-start mb-4">
                   <span className="text-2xl mr-3">👗</span>
                   <h3 className="font-serif text-2xl text-gray-800">
@@ -36,7 +36,7 @@ const Information: React.FC = () => {
               </div>
 
               {/* Clima Esperado */}
-              <div className="bg-white rounded-lg p-8 shadow-sm">
+              <div className="rounded-lg p-8 shadow-sm" style={{backgroundColor: '#F2F2F0'}}>
                 <div className="flex items-start mb-4">
                   <span className="text-2xl mr-3">🌤️</span>
                   <h3 className="font-serif text-2xl text-gray-800">

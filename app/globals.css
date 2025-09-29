@@ -3,13 +3,17 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
+  
+  /* Paleta de colores personalizada */
+  --color-primary-dark: #384001;    /* Verde oscuro */
+  --color-primary-medium: #A67D03;  /* Dorado medio */
+  --color-primary-light: #F2BD1D;   /* Dorado claro */
+  --color-accent: #F2CD88;          /* Beige dorado */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -21,9 +25,58 @@ body {
 }
 
 .font-serif {
-  font-family: var(--font-playfair), serif;
+  font-family: var(--font-libre-baskerville), serif;
 }
 
 .font-sans {
   font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Clases utilitarias para la paleta de colores personalizada */
+.bg-primary-dark {
+  background-color: var(--color-primary-dark);
+}
+
+.bg-primary-medium {
+  background-color: var(--color-primary-medium);
+}
+
+.bg-primary-light {
+  background-color: var(--color-primary-light);
+}
+
+.bg-accent {
+  background-color: var(--color-accent);
+}
+
+.text-primary-dark {
+  color: var(--color-primary-dark);
+}
+
+.text-primary-medium {
+  color: var(--color-primary-medium);
+}
+
+.text-primary-light {
+  color: var(--color-primary-light);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.border-primary-dark {
+  border-color: var(--color-primary-dark);
+}
+
+.border-primary-medium {
+  border-color: var(--color-primary-medium);
+}
+
+.border-primary-light {
+  border-color: var(--color-primary-light);
+}
+
+.border-accent {
+  border-color: var(--color-accent);
 }

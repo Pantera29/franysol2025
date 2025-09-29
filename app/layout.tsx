@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Libre_Baskerville, Inter } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-libre-baskerville",
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -27,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${playfair.variable} ${inter.variable} antialiased`}
+        className={`${libreBaskerville.variable} ${inter.variable} antialiased`}
       >
         {children}
       </body>
