@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
   const weddingDate = useMemo(() => new Date(2026, 2, 28), []); // Mes 2 = marzo (0-indexado)
   const timeLeft = useCountdown(weddingDate);
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex items-start justify-center overflow-hidden pt-32">
       {/* Imagen de fondo */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -97,12 +97,12 @@ const Hero: React.FC = () => {
         </p>
 
         {/* Nombres principales */}
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight font-normal tracking-wide">
-          SOL & FRAN
+        <h1 className="font-serif text-[60px] mb-6 leading-tight font-normal tracking-wide">
+          Sol & Fran
         </h1>
 
-        {/* Countdown */}
-        <div className="mb-6">
+        {/* Countdown - Oculto temporalmente */}
+        {/* <div className="mb-6">
           <div className="text-3xl md:text-4xl font-sans font-light mb-2">
             {timeLeft.months > 0 || timeLeft.days > 0 ? (
               <span className="text-white/90">
@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
           <p className="text-sm md:text-base font-sans tracking-widest uppercase opacity-70">
             {timeLeft.months > 0 || timeLeft.days > 0 ? 'para el gran día' : ''}
           </p>
-        </div>
+        </div> */}
 
         {/* Fecha */}
         <p className="text-xl md:text-2xl font-sans tracking-wider opacity-90">
