@@ -27,23 +27,13 @@ const GiftList: React.FC = () => {
           {/* Datos bancarios */}
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* México */}
-            <div className="bg-gray-50 rounded-lg p-8">
+            <div className="p-8">
               <h3 className="font-serif text-2xl text-gray-800 mb-6 flex items-center justify-center">
                 <span className="mr-3">🇲🇽</span>
                 México
               </h3>
               
               <div className="space-y-6">
-                {/* Franco - México */}
-                <div className="bg-white rounded-lg p-6 shadow-sm">
-                  <h4 className="font-serif text-lg text-gray-800 mb-4">Franco Longhi</h4>
-                  <div className="text-sm text-gray-600 space-y-2">
-                    <div><strong>Banco:</strong> BBVA Bancomer</div>
-                    <div><strong>Cuenta:</strong> 1525412590</div>
-                    <div><strong>CLABE:</strong> 012180015254125906</div>
-                  </div>
-                </div>
-
                 {/* Sol - México */}
                 <div className="bg-white rounded-lg p-6 shadow-sm">
                   <h4 className="font-serif text-lg text-gray-800 mb-4">Sol Traffano</h4>
@@ -53,27 +43,27 @@ const GiftList: React.FC = () => {
                     <div><strong>CLABE:</strong> XXXXXXXXXX</div>
                   </div>
                 </div>
+
+                {/* Franco - México */}
+                <div className="bg-white rounded-lg p-6 shadow-sm">
+                  <h4 className="font-serif text-lg text-gray-800 mb-4">Franco Longhi</h4>
+                  <div className="text-sm text-gray-600 space-y-2">
+                    <div><strong>Banco:</strong> BBVA Bancomer</div>
+                    <div><strong>Cuenta:</strong> 1525412590</div>
+                    <div><strong>CLABE:</strong> 012180015254125906</div>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Argentina */}
-            <div className="bg-gray-50 rounded-lg p-8">
+            <div className="p-8">
               <h3 className="font-serif text-2xl text-gray-800 mb-6 flex items-center justify-center">
                 <span className="mr-3">🇦🇷</span>
                 Argentina
               </h3>
               
               <div className="space-y-6">
-                {/* Franco - Argentina */}
-                <div className="bg-white rounded-lg p-6 shadow-sm">
-                  <h4 className="font-serif text-lg text-gray-800 mb-4">Franco Longhi</h4>
-                  <div className="text-sm text-gray-600 space-y-2">
-                    <div><strong>Banco:</strong> Galicia</div>
-                    <div><strong>CBU:</strong> 0070019130004055731523</div>
-                    <div><strong>Alias:</strong> francolonghi.gal</div>
-                  </div>
-                </div>
-
                 {/* Sol - Argentina */}
                 <div className="bg-white rounded-lg p-6 shadow-sm">
                   <h4 className="font-serif text-lg text-gray-800 mb-4">Sol Traffano</h4>
@@ -81,6 +71,16 @@ const GiftList: React.FC = () => {
                     <div><strong>Banco:</strong> MercadoPago</div>
                     <div><strong>CBU:</strong> XXXXXXXXXXXXX</div>
                     <div><strong>Alias:</strong> XXXXXXXXXXXXX</div>
+                  </div>
+                </div>
+
+                {/* Franco - Argentina */}
+                <div className="bg-white rounded-lg p-6 shadow-sm">
+                  <h4 className="font-serif text-lg text-gray-800 mb-4">Franco Longhi</h4>
+                  <div className="text-sm text-gray-600 space-y-2">
+                    <div><strong>Banco:</strong> Galicia</div>
+                    <div><strong>CBU:</strong> 0070019130004055731523</div>
+                    <div><strong>Alias:</strong> francolonghi.gal</div>
                   </div>
                 </div>
               </div>

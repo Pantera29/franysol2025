@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 const RSVP: React.FC = () => {
   return (
@@ -37,13 +38,16 @@ const RSVP: React.FC = () => {
           </h2>
 
           {/* Botón principal */}
-          <button className="bg-white text-black px-12 py-4 text-lg font-sans tracking-wide hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+          <Link 
+            href="/rsvp"
+            className="inline-block bg-white text-black px-12 py-4 text-lg font-sans tracking-wide hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+          >
             Confirmar asistencia
-          </button>
+          </Link>
 
           {/* Texto adicional */}
           <p className="mt-8 text-sm md:text-base font-sans opacity-80 max-w-lg mx-auto">
-            Por favor confirma tu asistencia antes del 15 de diciembre para poder organizar todos los detalles
+            Por favor confirma tu asistencia antes del 15 de Diciembre de 2025 para poder organizar todos los detalles
           </p>
         </div>
       </div>
