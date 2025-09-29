@@ -4,7 +4,7 @@ import React from 'react';
 
 const RSVP: React.FC = () => {
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section id="rsvp" className="relative py-32 overflow-hidden">
       {/* Imagen de fondo - placeholder */}
       <div className="absolute inset-0 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300">
         {/* Placeholder para imagen de fondo */}

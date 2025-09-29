@@ -1,8 +1,41 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+// Hook personalizado para calcular los días restantes
+const useCountdown = (targetDate: Date) => {
+  const [daysLeft, setDaysLeft] = useState<number>(0);
+
+  useEffect(() => {
+    const calculateDaysLeft = () => {
+      const now = new Date();
+      const target = new Date(targetDate);
+      
+      // Resetear las horas para calcular días completos
+      now.setHours(0, 0, 0, 0);
+      target.setHours(0, 0, 0, 0);
+      
+      const diffTime = target.getTime() - now.getTime();
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      
+      setDaysLeft(diffDays > 0 ? diffDays : 0);
+    };
+
+    calculateDaysLeft();
+    
+    // Actualizar cada día a medianoche
+    const interval = setInterval(calculateDaysLeft, 24 * 60 * 60 * 1000);
+    
+    return () => clearInterval(interval);
+  }, [targetDate]);
+
+  return daysLeft;
+};
 
 const Hero: React.FC = () => {
+  // Fecha del casamiento: 28 de marzo de 2026
+  const weddingDate = new Date(2026, 2, 28); // Mes 2 = marzo (0-indexado)
+  const daysLeft = useCountdown(weddingDate);
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Imagen de fondo - placeholder */}
@@ -34,6 +67,22 @@ const Hero: React.FC = () => {
         <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight">
           Sol y Fran
         </h1>
+
+        {/* Countdown */}
+        <div className="mb-6">
+          <div className="text-3xl md:text-4xl font-sans font-light mb-2">
+            {daysLeft > 0 ? (
+              <span className="text-white/90">
+                {daysLeft} {daysLeft === 1 ? 'día' : 'días'}
+              </span>
+            ) : (
+              <span className="text-white/90">¡Hoy es el día!</span>
+            )}
+          </div>
+          <p className="text-sm md:text-base font-sans tracking-widest uppercase opacity-70">
+            {daysLeft > 0 ? 'para el gran día' : ''}
+          </p>
+        </div>
 
         {/* Fecha */}
         <p className="text-xl md:text-2xl font-sans tracking-wider opacity-90">

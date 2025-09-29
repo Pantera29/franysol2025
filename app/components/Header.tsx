@@ -10,10 +10,10 @@ const Header: React.FC = () => {
           {/* Navegación izquierda */}
           <nav className="hidden md:flex items-center space-x-8">
             <a 
-              href="#historia" 
+              href="#evento" 
               className="text-white/90 hover:text-white transition-colors duration-300 text-sm font-sans"
             >
-              Nuestra historia
+              Ceremonia y Fiesta
             </a>
             <a 
               href="#informacion" 
@@ -37,9 +37,12 @@ const Header: React.FC = () => {
           </div>
 
           {/* Botón derecha */}
-          <button className="bg-white text-black px-6 py-2 rounded-sm hover:bg-gray-100 transition-colors duration-300 font-sans text-sm">
+          <a 
+            href="#rsvp" 
+            className="bg-white text-black px-6 py-2 rounded-sm hover:bg-gray-100 transition-colors duration-300 font-sans text-sm inline-block"
+          >
             Confirmar asistencia
-          </button>
+          </a>
 
           {/* Menú móvil */}
           <button className="md:hidden text-white">
@@ -53,10 +56,10 @@ const Header: React.FC = () => {
         <nav className="md:hidden mt-4 pb-4 border-t border-white/20 pt-4">
           <div className="flex flex-col space-y-3">
             <a 
-              href="#historia" 
+              href="#evento" 
               className="text-white/90 hover:text-white transition-colors duration-300 text-sm font-sans"
             >
-              Nuestra historia
+              Ceremonia y Fiesta
             </a>
             <a 
               href="#informacion" 
