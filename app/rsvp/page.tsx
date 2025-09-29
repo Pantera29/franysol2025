@@ -34,12 +34,15 @@ const RSVPPage: React.FC = () => {
       newErrors.name = 'El nombre es requerido';
     }
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'El email es requerido';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'El email no es válido';
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'El teléfono es requerido';
+    } else if (formData.phone.replace(/\D/g, '').length !== 10) {
+      newErrors.phone = 'El teléfono debe tener 10 dígitos';
     }
 
+    if (formData.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'El email no es válido';
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -59,7 +62,7 @@ const RSVPPage: React.FC = () => {
       const rsvpData: CreateRSVPData = {
         name: formData.name.trim(),
         email: formData.email.trim(),
-        phone: formData.phone.trim() || undefined,
+        phone: formData.phone.trim() ? formData.phone.replace(/\D/g, '') : undefined,
         attending: formData.attending,
         dietary_restrictions: formData.dietary_restrictions.trim() || undefined,
         message: formData.message.trim() || undefined,
@@ -92,9 +95,32 @@ const RSVPPage: React.FC = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
+    
+    let processedValue = value;
+    
+    // Aplicar máscara para teléfono
+    if (name === 'phone') {
+      // Remover todos los caracteres que no sean dígitos
+      const digitsOnly = value.replace(/\D/g, '');
+      
+      // Limitar a 10 dígitos
+      const limitedDigits = digitsOnly.slice(0, 10);
+      
+      // Aplicar formato: XXX XXX XXXX
+      if (limitedDigits.length >= 7) {
+        processedValue = `${limitedDigits.slice(0, 3)} ${limitedDigits.slice(3, 6)} ${limitedDigits.slice(6)}`;
+      } else if (limitedDigits.length >= 4) {
+        processedValue = `${limitedDigits.slice(0, 3)} ${limitedDigits.slice(3)}`;
+      } else if (limitedDigits.length > 0) {
+        processedValue = limitedDigits;
+      } else {
+        processedValue = '';
+      }
+    }
+    
     setFormData(prev => ({
       ...prev,
-      [name]: type === 'number' ? parseInt(value) || 0 : value
+      [name]: type === 'number' ? parseInt(processedValue) || 0 : processedValue
     }));
 
     // Limpiar error del campo cuando el usuario empiece a escribir
@@ -152,8 +178,14 @@ const RSVPPage: React.FC = () => {
                   <div><strong>Nombre:</strong> {formData.name}</div>
                   <div><strong>Email:</strong> {formData.email}</div>
                   <div><strong>¿Asistirás?:</strong> {formData.attending ? 'Sí' : 'No'}</div>
+                  {formData.phone && (
+                    <div><strong>Teléfono:</strong> {formData.phone}</div>
+                  )}
                   {formData.dietary_restrictions && (
                     <div><strong>Restricciones alimentarias:</strong> {formData.dietary_restrictions}</div>
+                  )}
+                  {formData.message && (
+                    <div><strong>Mensaje para los novios:</strong> {formData.message}</div>
                   )}
                 </div>
               </div>
@@ -177,7 +209,7 @@ const RSVPPage: React.FC = () => {
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4">
           <Link href="/" className="font-serif text-2xl text-gray-800 hover:text-gray-600 transition-colors">
-            Sol y Fran
+            Sol & Fran
           </Link>
         </div>
       </header>
@@ -248,10 +280,30 @@ const RSVPPage: React.FC = () => {
               {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
 
+            {/* Teléfono */}
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                Teléfono *
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent ${
+                  errors.phone ? 'border-red-500' : 'border-gray-300'
+                }`}
+                placeholder="345 456 7890"
+                maxLength={12}
+              />
+              {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+            </div>
+
             {/* Email */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Correo electrónico *
+                Correo electrónico (opcional)
               </label>
               <input
                 type="email"
@@ -265,22 +317,6 @@ const RSVPPage: React.FC = () => {
                 placeholder="tu@email.com"
               />
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-            </div>
-
-            {/* Teléfono */}
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                Teléfono (opcional)
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                placeholder="+52 123 456 7890"
-              />
             </div>
 
 

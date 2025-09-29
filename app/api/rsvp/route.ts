@@ -7,20 +7,31 @@ export async function POST(request: NextRequest) {
     const body: CreateRSVPData = await request.json()
     
     // Validar datos requeridos
-    if (!body.name || !body.email) {
+    if (!body.name || !body.phone) {
       return NextResponse.json(
-        { error: 'Nombre y email son requeridos' },
+        { error: 'Nombre y teléfono son requeridos' },
         { status: 400 }
       )
     }
 
-    // Validar formato de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(body.email)) {
+    // Validar formato de teléfono (debe tener 10 dígitos)
+    const phoneDigits = body.phone.replace(/\D/g, '');
+    if (phoneDigits.length !== 10) {
       return NextResponse.json(
-        { error: 'Formato de email inválido' },
+        { error: 'El teléfono debe tener 10 dígitos' },
         { status: 400 }
       )
+    }
+
+    // Validar formato de email solo si se proporciona
+    if (body.email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(body.email)) {
+        return NextResponse.json(
+          { error: 'Formato de email inválido' },
+          { status: 400 }
+        )
+      }
     }
 
     // Insertar en Supabase

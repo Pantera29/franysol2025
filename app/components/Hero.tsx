@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
 
         {/* Nombres principales */}
         <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight">
-          Sol y Fran
+          Sol & Fran
         </h1>
 
         {/* Countdown */}
