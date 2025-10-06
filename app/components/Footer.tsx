@@ -24,10 +24,10 @@ const Footer: React.FC = () => {
         <nav className="mb-8">
           <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
             <a 
-              href="#historia" 
+              href="#informacion" 
               className="text-white/70 hover:text-white transition-colors duration-300 font-sans text-sm"
             >
-              Nuestra historia
+              Ceremonia y Fiesta
             </a>
             <a 
               href="#informacion" 

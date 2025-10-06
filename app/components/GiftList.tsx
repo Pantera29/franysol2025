@@ -34,16 +34,6 @@ const GiftList: React.FC = () => {
               </h3>
               
               <div className="space-y-6">
-                {/* Sol - México */}
-                <div className="rounded-lg p-6 shadow-sm" style={{backgroundColor: '#F2F2F0'}}>
-                  <h4 className="font-serif text-lg text-gray-800 mb-4">Sol Traffano</h4>
-                  <div className="text-sm text-gray-600 space-y-2">
-                    <div><strong>Banco:</strong> BBVA Bancomer</div>
-                    <div><strong>Cuenta:</strong> XXXXXXXXXX</div>
-                    <div><strong>CLABE:</strong> XXXXXXXXXX</div>
-                  </div>
-                </div>
-
                 {/* Franco - México */}
                 <div className="rounded-lg p-6 shadow-sm" style={{backgroundColor: '#F2F2F0'}}>
                   <h4 className="font-serif text-lg text-gray-800 mb-4">Franco Longhi</h4>
@@ -64,16 +54,6 @@ const GiftList: React.FC = () => {
               </h3>
               
               <div className="space-y-6">
-                {/* Sol - Argentina */}
-                <div className="rounded-lg p-6 shadow-sm" style={{backgroundColor: '#F2F2F0'}}>
-                  <h4 className="font-serif text-lg text-gray-800 mb-4">Sol Traffano</h4>
-                  <div className="text-sm text-gray-600 space-y-2">
-                    <div><strong>Banco:</strong> MercadoPago</div>
-                    <div><strong>CBU:</strong> XXXXXXXXXXXXX</div>
-                    <div><strong>Alias:</strong> XXXXXXXXXXXXX</div>
-                  </div>
-                </div>
-
                 {/* Franco - Argentina */}
                 <div className="rounded-lg p-6 shadow-sm" style={{backgroundColor: '#F2F2F0'}}>
                   <h4 className="font-serif text-lg text-gray-800 mb-4">Franco Longhi</h4>
