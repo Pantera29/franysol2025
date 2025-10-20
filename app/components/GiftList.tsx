@@ -60,7 +60,7 @@ const GiftList: React.FC = () => {
 
           {/* Mensaje inspiracional */}
           <div className="mb-12">
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sans italic max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sans max-w-3xl mx-auto">
             Tu presencia es el mejor regalo que podríamos recibir.<br />
               Si aún así quieres acompañarnos con un detalle especial, hemos creado un fondo para nuestra luna de miel.
               <br /><br /> 
@@ -109,7 +109,10 @@ const GiftList: React.FC = () => {
                   <h4 className="font-serif text-lg text-gray-800 mb-4">Franco Longhi</h4>
                   <div className="text-sm text-gray-600 space-y-2 text-center">
                     <div><strong>Banco:</strong> BBVA </div>
-                    <div><strong>Cuenta:</strong> 1525412590</div>
+                    <div className="flex items-center justify-center">
+                      <span><strong>Cuenta:</strong> 1525412590</span>
+                      <CopyButton text="1525412590" fieldName="cuenta-mx" />
+                    </div>
                     <div className="flex items-center justify-center">
                       <span><strong>CLABE:</strong> 012180015254125906</span>
                       <CopyButton text="012180015254125906" fieldName="clabe-mx" />

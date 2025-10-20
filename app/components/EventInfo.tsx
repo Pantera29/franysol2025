@@ -11,7 +11,7 @@ const EventInfo: React.FC = () => {
           <div className="order-2 lg:order-1 hidden lg:block">
             <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-lg">
               <img
-                src="/bodegas-robinson.jpg"
+                src="/bodega-dibujo.png"
                 alt="Bodegas Robinson - Lugar de la celebración"
                 className="w-full h-full object-cover"
               />
@@ -28,7 +28,7 @@ const EventInfo: React.FC = () => {
             <div className="lg:hidden mb-8">
               <div className="aspect-[4/3] max-w-xs mx-auto rounded-lg overflow-hidden shadow-lg">
                 <img
-                  src="/bodegas-robinson.jpg"
+                  src="/bodega-dibujo.png"
                   alt="Bodegas Robinson - Lugar de la celebración"
                   className="w-full h-full object-cover"
                 />
@@ -39,7 +39,7 @@ const EventInfo: React.FC = () => {
               {/* Hora */}
               <div>
                 <h3 className="font-serif text-3xl mb-2 text-black">
-                  18:30
+                  18:30 hs
                 </h3>
               </div>
 
@@ -59,7 +59,7 @@ const EventInfo: React.FC = () => {
                   href="https://www.google.com/maps/place/Bodega+Robinson/@-31.3297741,-58.0256008,970m/data=!3m1!1e3!4m6!3m5!1s0x95ade9b76e5cd423:0x80f94d22192c7997!8m2!3d-31.3291876!4d-58.0234443!16s%2Fg%2F11h3c6z6cf?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-8 py-3 bg-suculenta text-black hover:bg-suculenta/80 transition-all duration-300 font-sans text-sm tracking-wide"
+                  className="inline-flex items-center px-8 py-3 bg-suculenta text-black hover:bg-suculenta/80 transition-all duration-300 font-sans text-sm tracking-wide rounded-[10px]"
                 >
                   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />

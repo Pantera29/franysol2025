@@ -2,47 +2,52 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 
-// Hook personalizado para calcular solo los días restantes
-const useDaysCountdown = (targetDate: Date) => {
-  const [daysLeft, setDaysLeft] = useState<number>(0);
+// Hook personalizado para calcular días, horas, minutos y segundos restantes
+const useFullCountdown = (targetDate: Date) => {
+  const [timeLeft, setTimeLeft] = useState<{
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+  }>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   const memoizedTargetDate = useMemo(() => targetDate.getTime(), [targetDate]);
 
   useEffect(() => {
-    const calculateDaysLeft = () => {
+    const calculateTimeLeft = () => {
       const now = new Date();
       const target = new Date(memoizedTargetDate);
-      
-      // Resetear las horas para calcular días completos
-      now.setHours(0, 0, 0, 0);
-      target.setHours(0, 0, 0, 0);
       
       const diffTime = target.getTime() - now.getTime();
       
       if (diffTime <= 0) {
-        setDaysLeft(0);
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
         return;
       }
       
-      const days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      setDaysLeft(days);
+      const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diffTime % (1000 * 60)) / 1000);
+      
+      setTimeLeft({ days, hours, minutes, seconds });
     };
 
-    calculateDaysLeft();
+    calculateTimeLeft();
     
-    // Actualizar cada día a medianoche
-    const interval = setInterval(calculateDaysLeft, 24 * 60 * 60 * 1000);
+    // Actualizar cada segundo
+    const interval = setInterval(calculateTimeLeft, 1000);
     
     return () => clearInterval(interval);
   }, [memoizedTargetDate]);
 
-  return daysLeft;
+  return timeLeft;
 };
 
 const Countdown: React.FC = () => {
   // Fecha del casamiento: 28 de marzo de 2026
   const weddingDate = useMemo(() => new Date(2026, 2, 28), []); // Mes 2 = marzo (0-indexado)
-  const daysLeft = useDaysCountdown(weddingDate);
+  const timeLeft = useFullCountdown(weddingDate);
 
   return (
     <section className="py-10" style={{backgroundColor: '#F2F2F0'}}>
@@ -56,14 +61,47 @@ const Countdown: React.FC = () => {
               <div className="w-16 h-0.5 bg-gray-400 mx-auto mb-6"></div>
             </div>
             
-            {/* Countdown Timer - Solo Días */}
+            {/* Countdown Timer - Días, Horas, Minutos y Segundos */}
             <div className="flex justify-center items-center">
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-3 bg-gray-800 rounded-lg px-8 py-4 min-w-[120px]">
-                  {daysLeft}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-2xl">
+                {/* Días */}
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-white mb-2 bg-suculenta rounded-lg px-4 py-3">
+                    {timeLeft.days}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-600 font-light">
+                    {timeLeft.days === 1 ? 'día' : 'días'}
+                  </div>
                 </div>
-                <div className="text-lg md:text-xl text-gray-600 font-light">
-                  {daysLeft === 1 ? 'día' : 'días'}
+
+                {/* Horas */}
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-white mb-2 bg-suculenta rounded-lg px-4 py-3">
+                    {timeLeft.hours}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-600 font-light">
+                    {timeLeft.hours === 1 ? 'hora' : 'horas'}
+                  </div>
+                </div>
+
+                {/* Minutos */}
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-white mb-2 bg-suculenta rounded-lg px-4 py-3">
+                    {timeLeft.minutes}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-600 font-light">
+                    {timeLeft.minutes === 1 ? 'minuto' : 'minutos'}
+                  </div>
+                </div>
+
+                {/* Segundos */}
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-white mb-2 bg-suculenta rounded-lg px-4 py-3">
+                    {timeLeft.seconds}
+                  </div>
+                  <div className="text-sm md:text-base text-gray-600 font-light">
+                    {timeLeft.seconds === 1 ? 'segundo' : 'segundos'}
+                  </div>
                 </div>
               </div>
             </div>

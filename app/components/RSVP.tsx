@@ -44,7 +44,7 @@ const RSVP: React.FC = () => {
               <div>
                 <Link 
                   href="/rsvp"
-                  className="inline-flex items-center px-8 py-3 bg-suculenta text-white hover:bg-suculenta/80 transition-all duration-300 font-sans text-sm tracking-wide"
+                  className="inline-flex items-center px-8 py-3 bg-suculenta text-white hover:bg-suculenta/80 transition-all duration-300 font-sans text-sm tracking-wide rounded-[10px]"
                 >
                   Confirmar asistencia
                 </Link>
