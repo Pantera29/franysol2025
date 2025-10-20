@@ -63,43 +63,43 @@ const Countdown: React.FC = () => {
             
             {/* Countdown Timer - Días, Horas, Minutos y Segundos */}
             <div className="flex justify-center items-center">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-2xl">
+              <div className="grid grid-cols-4 gap-2 md:gap-4 w-full max-w-2xl">
                 {/* Días */}
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-2 bg-suculenta rounded-lg px-4 py-3">
+                  <div className="text-2xl md:text-4xl font-bold text-white mb-2 bg-suculenta rounded-lg px-2 md:px-4 py-2 md:py-3">
                     {timeLeft.days}
                   </div>
-                  <div className="text-sm md:text-base text-gray-600 font-light">
+                  <div className="text-xs md:text-base text-gray-600 font-light">
                     {timeLeft.days === 1 ? 'día' : 'días'}
                   </div>
                 </div>
 
                 {/* Horas */}
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-2 bg-suculenta rounded-lg px-4 py-3">
+                  <div className="text-2xl md:text-4xl font-bold text-white mb-2 bg-suculenta rounded-lg px-2 md:px-4 py-2 md:py-3">
                     {timeLeft.hours}
                   </div>
-                  <div className="text-sm md:text-base text-gray-600 font-light">
+                  <div className="text-xs md:text-base text-gray-600 font-light">
                     {timeLeft.hours === 1 ? 'hora' : 'horas'}
                   </div>
                 </div>
 
                 {/* Minutos */}
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-2 bg-suculenta rounded-lg px-4 py-3">
+                  <div className="text-2xl md:text-4xl font-bold text-white mb-2 bg-suculenta rounded-lg px-2 md:px-4 py-2 md:py-3">
                     {timeLeft.minutes}
                   </div>
-                  <div className="text-sm md:text-base text-gray-600 font-light">
+                  <div className="text-xs md:text-base text-gray-600 font-light">
                     {timeLeft.minutes === 1 ? 'minuto' : 'minutos'}
                   </div>
                 </div>
 
                 {/* Segundos */}
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-2 bg-suculenta rounded-lg px-4 py-3">
+                  <div className="text-2xl md:text-4xl font-bold text-white mb-2 bg-suculenta rounded-lg px-2 md:px-4 py-2 md:py-3">
                     {timeLeft.seconds}
                   </div>
-                  <div className="text-sm md:text-base text-gray-600 font-light">
+                  <div className="text-xs md:text-base text-gray-600 font-light">
                     {timeLeft.seconds === 1 ? 'segundo' : 'segundos'}
                   </div>
                 </div>
