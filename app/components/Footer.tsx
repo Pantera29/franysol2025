@@ -4,7 +4,7 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-white py-12">
+    <footer className="bg-suculenta text-black py-12">
       <div className="container mx-auto px-6 text-center">
         {/* Iniciales principales */}
         <div className="mb-6">
@@ -25,19 +25,19 @@ const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
             <a 
               href="#informacion" 
-              className="text-white/70 hover:text-white transition-colors duration-300 font-sans text-sm"
+              className="text-black/70 hover:text-black transition-colors duration-300 font-sans text-sm"
             >
               Ceremonia y Fiesta
             </a>
             <a 
               href="#informacion" 
-              className="text-white/70 hover:text-white transition-colors duration-300 font-sans text-sm"
+              className="text-black/70 hover:text-black transition-colors duration-300 font-sans text-sm"
             >
               Información
             </a>
             <a 
               href="#regalos" 
-              className="text-white/70 hover:text-white transition-colors duration-300 font-sans text-sm"
+              className="text-black/70 hover:text-black transition-colors duration-300 font-sans text-sm"
             >
               Lista de regalos
             </a>
@@ -45,8 +45,8 @@ const Footer: React.FC = () => {
         </nav>
 
         {/* Mensaje final */}
-        <div className="border-t border-white/20 pt-6">
-          <p className="font-sans text-sm text-white/60">
+        <div className="border-t border-black/20 pt-6">
+          <p className="font-sans text-sm text-black/60">
             Con amor, Sol y Fran
           </p>
         </div>

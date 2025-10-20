@@ -26,11 +26,7 @@ const Information: React.FC = () => {
                 </div>
                 <div className="text-gray-600 leading-relaxed">
                   <p className="mb-4">
-                    <strong>Formal</strong> (evitar el color blanco, reservado para la novia)
-                  </p>
-                  <p>
-                    Recomendamos calzado cómodo ya que la ceremonia será en el jardín 
-                    y luego tendremos una noche de celebración y mucho baile.
+                    <strong>Formal elegante</strong>
                   </p>
                 </div>
               </div>
@@ -47,9 +43,6 @@ const Information: React.FC = () => {
                   <p className="mb-4">
                     Para finales de Marzo en Concordia, habrán temperaturas entre 
                     <strong> 25°C (día)</strong> y <strong>15°C (noche)</strong>.
-                  </p>
-                  <p>
-                    La ceremonia y recepción cuentan con áreas cubiertas en caso de lluvia.
                   </p>
                 </div>
               </div>

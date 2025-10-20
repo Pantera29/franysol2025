@@ -11,7 +11,7 @@ const RSVP: React.FC = () => {
           {/* Información izquierda */}
           <div className="order-1 lg:order-1 text-center lg:text-left">
             <h2 className="font-serif text-4xl md:text-5xl mb-8 text-black">
-              ¡Acompáñanos!
+            ¿Nos acompañas?
             </h2>
 
             {/* Imagen pequeña en mobile - aparece después del título */}
@@ -33,21 +33,21 @@ const RSVP: React.FC = () => {
                 </p>
               </div>
 
-              {/* Botón principal */}
-              <div>
-                <Link 
-                  href="/rsvp"
-                  className="inline-flex items-center px-8 py-3 bg-black text-white hover:bg-gray-800 transition-all duration-300 font-sans text-sm tracking-wide"
-                >
-                  Confirmar asistencia
-                </Link>
-              </div>
-
               {/* Texto adicional */}
               <div>
                 <p className="font-sans text-sm text-gray-600">
                   Por favor confirma tu asistencia antes del 15 de Diciembre de 2025 para poder organizar todos los detalles
                 </p>
+              </div>
+
+              {/* Botón principal */}
+              <div>
+                <Link 
+                  href="/rsvp"
+                  className="inline-flex items-center px-8 py-3 bg-suculenta text-white hover:bg-suculenta/80 transition-all duration-300 font-sans text-sm tracking-wide"
+                >
+                  Confirmar asistencia
+                </Link>
               </div>
             </div>
           </div>

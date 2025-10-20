@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Countdown from './components/Countdown';
 import EventInfo from './components/EventInfo';
 import Information from './components/Information';
 import GiftList from './components/GiftList';
@@ -13,6 +14,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <Countdown />
         <EventInfo />
         <Information />
         <GiftList />

@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { Libre_Baskerville, Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 
-const libreBaskerville = Libre_Baskerville({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-libre-baskerville",
-  weight: ["400", "700"],
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-montserrat",
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -28,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${libreBaskerville.variable} ${inter.variable} antialiased`}
+        className={`${montserrat.variable} antialiased`}
       >
         {children}
       </body>
