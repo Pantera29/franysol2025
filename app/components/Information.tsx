@@ -39,8 +39,8 @@ const Information: React.FC = () => {
                 </div>
                 <div className="text-gray-600 leading-relaxed">
                   <p className="mb-4">
-                    Para finales de Marzo en Concordia, habrán temperaturas entre 
-                    <strong> 25°C (día)</strong> y <strong>15°C (noche)</strong>.
+                    <strong>Calorcito y buena onda: </strong>
+                    25°C (día) y 15°C (noche).
                   </p>
                 </div>
               </div>
