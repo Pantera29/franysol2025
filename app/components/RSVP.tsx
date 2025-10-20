@@ -10,9 +10,10 @@ const RSVP: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Información izquierda */}
           <div className="order-1 lg:order-1 text-center lg:text-left">
-            <h2 className="font-serif text-4xl md:text-5xl mb-8 text-black">
+            <h2 className="font-serif text-2xl md:text-3xl mb-4 text-black">
             ¿Nos acompañas?
             </h2>
+            <div className="w-24 h-0.5 bg-gray-400 mb-8 mx-auto lg:mx-0"></div>
 
             {/* Imagen pequeña en mobile - aparece después del título */}
             <div className="lg:hidden mb-8">

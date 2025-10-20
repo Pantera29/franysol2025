@@ -9,7 +9,7 @@ const Information: React.FC = () => {
         <div className="min-h-[500px] flex items-center">
           <div className="w-full max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="font-serif text-4xl md:text-5xl text-gray-800 mb-4">
+              <h2 className="font-serif text-2xl md:text-3xl text-gray-800 mb-4">
                 Información
               </h2>
               <div className="w-24 h-0.5 bg-gray-400 mx-auto"></div>
@@ -18,8 +18,7 @@ const Information: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-8">
               {/* Código de Vestimenta */}
               <div className="rounded-lg p-8 shadow-sm" style={{backgroundColor: '#F2F2F0'}}>
-                <div className="flex items-start mb-4">
-                  <span className="text-2xl mr-3">👗</span>
+                <div className="mb-4">
                   <h3 className="font-serif text-2xl text-gray-800">
                     Código de Vestimenta
                   </h3>
@@ -33,8 +32,7 @@ const Information: React.FC = () => {
 
               {/* Clima Esperado */}
               <div className="rounded-lg p-8 shadow-sm" style={{backgroundColor: '#F2F2F0'}}>
-                <div className="flex items-start mb-4">
-                  <span className="text-2xl mr-3">🌤️</span>
+                <div className="mb-4">
                   <h3 className="font-serif text-2xl text-gray-800">
                     Clima Esperado
                   </h3>

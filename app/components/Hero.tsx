@@ -1,80 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React from 'react';
 
-// Hook personalizado para calcular los meses y días restantes
-const useCountdown = (targetDate: Date) => {
-  const [timeLeft, setTimeLeft] = useState<{months: number, days: number}>({months: 0, days: 0});
-
-  // Memoizar la fecha objetivo para evitar recreaciones innecesarias
-  const memoizedTargetDate = useMemo(() => targetDate.getTime(), [targetDate]);
-
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const now = new Date();
-      const target = new Date(memoizedTargetDate);
-      
-      // Resetear las horas para calcular días completos
-      now.setHours(0, 0, 0, 0);
-      target.setHours(0, 0, 0, 0);
-      
-      const diffTime = target.getTime() - now.getTime();
-      
-      if (diffTime <= 0) {
-        setTimeLeft(prev => prev.months === 0 && prev.days === 0 ? prev : {months: 0, days: 0});
-        return;
-      }
-      
-      // Calcular meses y días de forma más simple
-      const currentYear = now.getFullYear();
-      const currentMonth = now.getMonth();
-      const currentDay = now.getDate();
-      
-      const targetYear = target.getFullYear();
-      const targetMonth = target.getMonth();
-      const targetDay = target.getDate();
-      
-      // Calcular diferencia en meses
-      let months = (targetYear - currentYear) * 12 + (targetMonth - currentMonth);
-      
-      // Si el día del mes actual es mayor al día objetivo, restar un mes
-      if (currentDay > targetDay) {
-        months--;
-      }
-      
-      // Calcular días restantes
-      const tempDate = new Date(currentYear, currentMonth, currentDay);
-      tempDate.setMonth(tempDate.getMonth() + months);
-      
-      const daysDiff = Math.ceil((target.getTime() - tempDate.getTime()) / (1000 * 60 * 60 * 24));
-      const days = Math.max(0, daysDiff);
-      
-      const newTimeLeft = {months: Math.max(0, months), days};
-      
-      // Solo actualizar si los valores han cambiado
-      setTimeLeft(prev => {
-        if (prev.months !== newTimeLeft.months || prev.days !== newTimeLeft.days) {
-          return newTimeLeft;
-        }
-        return prev;
-      });
-    };
-
-    calculateTimeLeft();
-    
-    // Actualizar cada día a medianoche
-    const interval = setInterval(calculateTimeLeft, 24 * 60 * 60 * 1000);
-    
-    return () => clearInterval(interval);
-  }, [memoizedTargetDate]);
-
-  return timeLeft;
-};
 
 const Hero: React.FC = () => {
-  // Fecha del casamiento: 28 de marzo de 2026
-  const weddingDate = useMemo(() => new Date(2026, 2, 28), []); // Mes 2 = marzo (0-indexado)
-  const timeLeft = useCountdown(weddingDate);
   return (
     <section className="relative h-screen flex items-start justify-center overflow-hidden pt-32">
       {/* Imagen de fondo */}
@@ -101,36 +30,21 @@ const Hero: React.FC = () => {
           Sol & Fran
         </h1>
 
-        {/* Countdown - Oculto temporalmente */}
-        {/* <div className="mb-6">
-          <div className="text-3xl md:text-4xl font-sans font-light mb-2">
-            {timeLeft.months > 0 || timeLeft.days > 0 ? (
-              <span className="text-white/90">
-                {timeLeft.months > 0 && (
-                  <span>
-                    {timeLeft.months} {timeLeft.months === 1 ? 'mes' : 'meses'}
-                    {timeLeft.days > 0 && ' y '}
-                  </span>
-                )}
-                {timeLeft.days > 0 && (
-                  <span>
-                    {timeLeft.days} {timeLeft.days === 1 ? 'día' : 'días'}
-                  </span>
-                )}
-              </span>
-            ) : (
-              <span className="text-white/90">¡Hoy es el día!</span>
-            )}
-          </div>
-          <p className="text-sm md:text-base font-sans tracking-widest uppercase opacity-70">
-            {timeLeft.months > 0 || timeLeft.days > 0 ? 'para el gran día' : ''}
-          </p>
-        </div> */}
 
         {/* Fecha */}
-        <p className="text-xl md:text-2xl font-sans tracking-wider opacity-90">
-          28.03.26
-        </p>
+        <div className="flex items-center justify-center space-x-4 text-white">
+          <span className="text-lg md:text-xl font-serif font-light tracking-wider opacity-90">
+            MAR
+          </span>
+          <div className="w-px h-8 bg-white/60"></div>
+          <span className="text-4xl md:text-5xl font-serif font-normal tracking-wide">
+            28
+          </span>
+          <div className="w-px h-8 bg-white/60"></div>
+          <span className="text-lg md:text-xl font-serif font-light tracking-wider opacity-90">
+            2026
+          </span>
+        </div>
       </div>
 
       {/* Indicador de scroll */}
